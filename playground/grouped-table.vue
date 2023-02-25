@@ -9,6 +9,7 @@
     :select-options="{
       enabled: true,
       selectAllByGroup: true,
+      selectionText: n => n == 1 ? '1 animal selected' : `${n} animals selected`,
     }"
     v-on:select-all="onSelectAll"
     v-on:search="onSelectAll"
