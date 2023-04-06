@@ -1004,7 +1004,7 @@ export default {
 		},
 
 		hasRowClickListener() {
-			return this.$attrs && this.$attrs["row-click"];
+			return this.$attrs && this.$attrs['onRowClick'];
 		},
 	},
 
