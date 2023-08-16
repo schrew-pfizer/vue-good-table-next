@@ -166,7 +166,7 @@ The expanded and collapsed state will then be maintained.
   :rows="rows"
   :group-options="{
     enabled: true,
-    rowKey="id"
+    rowKey:"id",
     collapsable: true // or column index
   }"
 >
