@@ -15,17 +15,15 @@
 //   // },
 // }
 
-const { defaultTheme } = require('@vuepress/theme-default')
-const { path } = require('@vuepress/utils')
+import { defaultTheme } from '@vuepress/theme-default'
+import { path } from '@vuepress/utils'
 
-module.exports = {
-  localTheme: options => {
-    return {
-      name: 'vuepress-theme-local',
-      extends: defaultTheme(options),
-      layouts: {
-        Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
-      },
-    }
-  },
+export function localTheme(options) {
+  return {
+    name: 'vuepress-theme-local',
+    extends: defaultTheme(options),
+    layouts: {
+      Layout: path.resolve(__dirname, 'layouts/Layout.vue'),
+    },
+  }
 }

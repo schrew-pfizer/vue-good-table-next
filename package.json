@@ -18,8 +18,7 @@
     "test:unit": "vue-cli-service test:unit",
     "dev": "vite --config playground/vite.config.js",
     "docs:build": "vuepress build vp-docs",
-    "docs:dev": "vuepress dev vp-docs",
-    "docs:serve": "vuepress serve vp-docs"
+    "docs:dev": "vuepress dev vp-docs"
   },
   "main": "dist/vue-good-table.cjs.js",
   "module": "dist/vue-good-table.esm.js",
@@ -41,9 +40,11 @@
     "@vue/cli-service": "^4.5.15",
     "@vue/component-compiler-utils": "^3.3.0",
     "@vue/test-utils": "^2.0.0-rc.16",
-    "@vuepress/plugin-google-analytics": "^2.0.0-beta.26",
-    "@vuepress/plugin-register-components": "^2.0.0-beta.26",
-    "@vuepress/plugin-search": "^2.0.0-beta.26",
+    "@vuepress/bundler-vite": "^2.0.0-rc.15",
+    "@vuepress/plugin-google-analytics": "^2.0.0-rc.15",
+    "@vuepress/plugin-register-components": "^2.0.0-rc.15",
+    "@vuepress/plugin-search": "^2.0.0-rc.15",
+    "@vuepress/theme-default": "^2.0.0-rc.42",
     "chai": "^4.1.2",
     "chalk": "^4.1.0",
     "chromedriver": "^95.0.0",
@@ -59,7 +60,7 @@
     "vite": "^2.6.13",
     "vue": "^3.2.20",
     "vue-jest": "^5.0.0-0",
-    "vuepress": "^2.0.0-beta.26",
+    "vuepress": "^2.0.0-rc.15",
     "webpack-node-externals": "^3.0.0"
   },
   "keywords": [
