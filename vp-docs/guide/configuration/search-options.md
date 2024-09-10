@@ -16,7 +16,7 @@ This section talks about how to configure global search options.
     skipDiacritics: true,
     searchFn: mySearchFn,
     placeholder: 'Search this table',
-    externalQuery: searchQuery
+    externalQuery: searchQuery,
     v-on:search="onSearch"
   }">
 </vue-good-table>
