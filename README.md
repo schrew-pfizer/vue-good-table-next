@@ -563,13 +563,13 @@ Object containing select options
     enabled: true,
     selectOnCheckboxOnly: true, // only select when checkbox is clicked instead of the row
     selectionInfoClass: 'custom-class',
-    selectionText: 'rows selected',
+    selectionText: 'rows selected', // can also accept a function, e.g. n => `${n} rows selected`
     clearSelectionText: 'clear',
     alwaysShowSelectionInfo: false, // always show the row count, even when nothing is selected
   }">
  ```
 
- you can get the selectedRows listening the [@on-selected-rows-change](#on-selected-rows-change) event.
+ you can get the selectedRows by listening to the [@on-selected-rows-change](#on-selected-rows-change) event.
 
 
 #### Grouped Row Options

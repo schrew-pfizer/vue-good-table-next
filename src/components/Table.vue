@@ -390,7 +390,7 @@ export default {
 				return {
 					enabled: false,
 					selectionInfoClass: "",
-					selectionText: "rows selected",
+					selectionText: n => n + ' row' + (n !== 1 ? 's' : '') + ' selected',
 					clearSelectionText: "clear",
 					disableSelectInfo: false,
 					selectAllByGroup: false,
@@ -466,7 +466,7 @@ export default {
 		selectAllByPage: true,
 		disableSelectInfo: false,
 		selectionInfoClass: "",
-		selectionText: "rows selected",
+		selectionText: n => n + ' row' + (n !== 1 ? 's' : '') + ' selected',
 		clearSelectionText: "clear",
 		alwaysShowSelectionInfo: false,
 
@@ -652,7 +652,11 @@ export default {
 		},
 
 		selectionInfo() {
-			return `${this.selectedRowCount} ${this.selectionText}`;
+			if (typeof this.selectionText == 'function') {
+				return this.selectionText(this.selectedRowCount);
+			} else {
+				return `${this.selectedRowCount} ${this.selectionText}`;
+			}
 		},
 
 		selectedRowCount() {
@@ -1743,12 +1747,12 @@ export default {
 				this.selectionInfoClass = selectionInfoClass;
 			}
 
-			if (typeof alwaysShowSelectionInfo === "boolean") {
-				this.alwaysShowSelectionInfo = alwaysShowSelectionInfo;
-			}
-
-			if (typeof selectionText === "string") {
+			if (typeof selectionText === "string" || typeof selectionText === "function") {
 				this.selectionText = selectionText;
+			}
+      
+      if (typeof alwaysShowSelectionInfo === "boolean") {
+				this.alwaysShowSelectionInfo = alwaysShowSelectionInfo;
 			}
 
 			if (typeof clearSelectionText === "string") {
