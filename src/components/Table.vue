@@ -46,7 +46,7 @@
 				</template>
 			</vgt-global-search>
 			<div
-				v-if="selectedRowCount && !disableSelectInfo"
+				v-if="alwaysShowSelectionInfo || (selectedRowCount && !disableSelectInfo)"
 				class="vgt-selection-info-row clearfix"
 				:class="selectionInfoClass"
 			>
@@ -394,6 +394,7 @@ export default {
 					clearSelectionText: "clear",
 					disableSelectInfo: false,
 					selectAllByGroup: false,
+					alwaysShowSelectionInfo: false,
 				};
 			},
 		},
@@ -467,6 +468,7 @@ export default {
 		selectionInfoClass: "",
 		selectionText: "rows selected",
 		clearSelectionText: "clear",
+		alwaysShowSelectionInfo: false,
 
 		// keys for rows that are currently expanded
 		maintainExpanded: true,
@@ -1714,6 +1716,7 @@ export default {
 				selectAllByPage,
 				disableSelectInfo,
 				selectAllByGroup,
+				alwaysShowSelectionInfo,
 			} = this.selectOptions;
 
 			if (typeof enabled === "boolean") {
@@ -1738,6 +1741,10 @@ export default {
 
 			if (typeof selectionInfoClass === "string") {
 				this.selectionInfoClass = selectionInfoClass;
+			}
+
+			if (typeof alwaysShowSelectionInfo === "boolean") {
+				this.alwaysShowSelectionInfo = alwaysShowSelectionInfo;
 			}
 
 			if (typeof selectionText === "string") {

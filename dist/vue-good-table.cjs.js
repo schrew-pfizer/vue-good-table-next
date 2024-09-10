@@ -1,5 +1,5 @@
 /*!
-  * vue-good-table-next v0.2.0
+  * vue-good-table-next v0.2.1
   * (c) 2021-present Boris Flesch <boris@singlequote.net>
   * (c) 2017-2021 xaksis <shay@crayonbits.com>
   * @license MIT
@@ -8451,6 +8451,7 @@ const _sfc_main = {
 					clearSelectionText: "clear",
 					disableSelectInfo: false,
 					selectAllByGroup: false,
+					alwaysShowSelectionInfo: false,
 				};
 			},
 		},
@@ -8524,6 +8525,7 @@ const _sfc_main = {
 		selectionInfoClass: "",
 		selectionText: "rows selected",
 		clearSelectionText: "clear",
+		alwaysShowSelectionInfo: false,
 
 		// keys for rows that are currently expanded
 		maintainExpanded: true,
@@ -9771,6 +9773,7 @@ const _sfc_main = {
 				selectAllByPage,
 				disableSelectInfo,
 				selectAllByGroup,
+				alwaysShowSelectionInfo,
 			} = this.selectOptions;
 
 			if (typeof enabled === "boolean") {
@@ -9795,6 +9798,10 @@ const _sfc_main = {
 
 			if (typeof selectionInfoClass === "string") {
 				this.selectionInfoClass = selectionInfoClass;
+			}
+
+			if (typeof alwaysShowSelectionInfo === "boolean") {
+				this.alwaysShowSelectionInfo = alwaysShowSelectionInfo;
 			}
 
 			if (typeof selectionText === "string") {
@@ -9915,7 +9922,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             }
           : undefined
       ]), 1032 /* PROPS, DYNAMIC_SLOTS */, ["onKeyup", "onEnter", "value", "search-enabled", "global-search-placeholder"]),
-      ($options.selectedRowCount && !_ctx.disableSelectInfo)
+      (_ctx.alwaysShowSelectionInfo || ($options.selectedRowCount && !_ctx.disableSelectInfo))
         ? (vue.openBlock(), vue.createElementBlock("div", {
             key: 1,
             class: vue.normalizeClass(["vgt-selection-info-row clearfix", _ctx.selectionInfoClass])

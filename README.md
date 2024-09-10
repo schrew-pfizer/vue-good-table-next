@@ -565,6 +565,7 @@ Object containing select options
     selectionInfoClass: 'custom-class',
     selectionText: 'rows selected',
     clearSelectionText: 'clear',
+    alwaysShowSelectionInfo: false, // always show the row count, even when nothing is selected
   }">
  ```
 
