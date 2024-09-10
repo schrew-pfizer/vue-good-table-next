@@ -10,6 +10,7 @@ export const title = 'vue-good-table-next'
 export const description = 'A powerful data table plugin for Vue 3.X'
 export const base = '/vue-good-table-next/'
 export const head = [['link', { rel: 'icon', href: '/vue-good-table-next/favicon.png' }]]
+
 export const plugins = [
   registerComponentsPlugin({
     componentsDir: path.resolve(__dirname, './components'),
@@ -24,7 +25,7 @@ export const plugins = [
       },
     },
   }),
-];
+]
 
 export const theme = localTheme({
   repo: 'borisflesch/vue-good-table-next',
@@ -73,7 +74,7 @@ export const theme = localTheme({
       },
     ],
   },
-});
+})
 
 export default defineUserConfig({
   bundler: viteBundler({
@@ -81,5 +82,11 @@ export default defineUserConfig({
     vuePluginOptions: {},
   }),
   theme,
-  plugins
-});
+  plugins,
+  title: 'vue-good-table-next',
+  description: 'A powerful data table plugin for Vue 3.X',
+  base: '/vue-good-table-next/',
+  head: [
+    ['link', { rel: 'icon', href: '/vue-good-table-next/favicon.png' }]
+  ],
+})
