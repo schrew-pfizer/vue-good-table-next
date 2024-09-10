@@ -10077,7 +10077,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                         onMouseenter: $event => ($options.onMouseenter(row, index)),
                         onMouseleave: $event => ($options.onMouseleave(row, index)),
                         onDblclick: $event => ($options.onRowDoubleClicked(row, index, $event)),
-                        onClick: $event => ($options.onRowClicked(row, index, $event)),
+                        onClick: $event => ($options.onRowClicked(row, row.originalIndex, $event)),
                         onAuxclick: $event => ($options.onRowAuxClicked(row, index, $event))
                       }, [
                         ($props.lineNumbers)
@@ -10125,7 +10125,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                         }), 256 /* UNKEYED_FRAGMENT */))
                       ], 42 /* CLASS, PROPS, HYDRATE_EVENTS */, _hoisted_7))
                     : createCommentVNode("v-if", true),
-                  (_ctx.expandedRowIndex === index)
+                  (_ctx.expandedRowIndex === row.originalIndex & ($props.groupOptions.collapsable ? headerRow.vgtIsExpanded : true))
                     ? (openBlock(), createElementBlock("tr", {
                         class: normalizeClass($props.expandedRowDetailClasses),
                         key: row.originalIndex
