@@ -331,7 +331,8 @@
 
 <script>
 import { DEFAULT_SORT_TYPE, SORT_TYPES } from "./utils/constants";
-import isEqual from "lodash.isequal";
+// import isEqual from "lodash.isequal"; // lodash.isequal has been deprecated
+
 import defaultType from "./types/default";
 import VgtPagination from "./pagination/VgtPagination.vue";
 import VgtGlobalSearch from "./VgtGlobalSearch.vue";
@@ -619,6 +620,58 @@ export default {
 		hasHeaderRowTemplate() {
 			return !!this.$slots["table-header-row"];
 		},
+
+    isEqual(value, other) { // deep equality check
+      if (typeof value !== "object" && typeof other !== "object") {
+        return Object.is(value, other);
+      }
+    
+      if (value === null && other === null) {
+        return true;
+      }
+    
+      if (typeof value !== typeof other) {
+        return false;
+      }
+    
+      if (value === other) {
+        return true;
+      }
+    
+      if (Array.isArray(value) && Array.isArray(other)) {
+        if (value.length !== other.length) {
+          return false;
+        }
+    
+        for (let i = 0; i < value.length; i++) {
+          if (!isEqual(value[i], other[i])) {
+            return false;
+          }
+        }
+    
+        return true;
+      }
+    
+      if (Array.isArray(value) || Array.isArray(other)) {
+        return false;
+      }
+    
+      if (Object.keys(value).length !== Object.keys(other).length) {
+        return false;
+      }
+    
+      for (const [k, v] of Object.entries(value)) {
+        if (!(k in other)) {
+          return false;
+        }
+    
+        if (!isEqual(v, other[k])) {
+          return false;
+        }
+      }
+    
+      return true;
+    },
 
 		showEmptySlot() {
 			if (!this.paginated.length) return true;

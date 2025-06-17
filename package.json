@@ -27,8 +27,7 @@
     "src"
   ],
   "dependencies": {
-    "date-fns": "^2.25.0",
-    "lodash.isequal": "^4.5.0"
+    "date-fns": "^2.25.0"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.1",
