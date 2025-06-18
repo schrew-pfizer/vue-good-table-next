@@ -1260,3 +1260,26 @@ You can provide html for empty state slot as well. Example:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
+
+
+## Updates in 2025
+Author: Walter Schreppers
+
+Removed the lodash.isequal dependency as it's been deprecated (you get warnings about this when doing an npm install and are using
+this vue-good-table for vue3).
+
+Steps to build new production release of this component.
+
+```
+npm install --global rollup
+npm install --global path
+npm install --global run
+npm -i
+```
+After this open new terminal so rollup executable can be found in bin path
+and run the build to minify it all into dist folder:
+```
+npm run build
+```
+
+
